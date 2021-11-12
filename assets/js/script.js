@@ -10,7 +10,6 @@ var createHourBlock = function(index, task) {
     // create hour div
     var hourDivEl = document.createElement("div");
     hourDivEl.setAttribute("class", "col-md-1 hour");
-    //hourDivEl.setAttribute("id", index);
     hourDivEl.textContent = moment(index, "H").format("hA");
 
     // create textarea for task description
@@ -40,8 +39,8 @@ var createHourBlock = function(index, task) {
     return hourBlockEl;
 }
 
-// called every minute to check the current time and 
-// update the hour block colors
+// called every minute to check the current time 
+// and update the hour block colors
 var checkTime = function() {
     // get current hour
     var currentTime = moment().hour();
@@ -105,7 +104,7 @@ var checkTime = function() {
     }
     // otherwise add this task to the arrray and save
      else {
-        // add this task to the arrray and save
+        // add this task to the array and save
         taskObj = {
             "hour": parseInt(textareaEl.id),
             "text": newTask
@@ -120,7 +119,7 @@ var checkTime = function() {
 
 // *************** MAIN *************** //
 
-// retrieve any needed paraent elements
+// retrieve any needed parent elements
 var containerEl = document.querySelector(".container");
 
 // textarea base classes 
@@ -155,8 +154,7 @@ containerEl.append(timeBlockEl);
 // run checkTime for first time
 checkTime();
 
-// add lsitener for for submit buttons
-
+// add listener for for submit buttons
 $(".saveBtn").on("click", saveTask);
 
 // start the time monitoring - check every minute
